@@ -14,6 +14,11 @@ formulario:any;
 tituloFormulario: string | undefined;
 audios: Audio[] | undefined;
 
+visibilidadeTabela: boolean =  true;
+visibilidadeFormulario: boolean = false;
+
+
+
 
   constructor(private audioService: AudiosService ) { }
 
@@ -23,7 +28,11 @@ audios: Audio[] | undefined;
 
     });
 
+  }
 
+  ExibirFormularioCadastro():void{
+    this.visibilidadeTabela = false;
+    this.visibilidadeFormulario = true;
     this.tituloFormulario = "Novo Audio"
     this.formulario = new FormGroup({
       ArquivoNome: new  FormControl(null),
@@ -33,11 +42,28 @@ audios: Audio[] | undefined;
     });
   }
 
+/*
+  ExibirFormulrioAtualizacao(audioId):void{
+    this.
+
+
+  }
+  */
+
   EnviarFormulario():void{
     const audio : Audio = this.formulario.value;
     this.audioService.SalvarAudio(audio).subscribe(resultado => {
+      this.visibilidadeFormulario = false;
+      this.visibilidadeTabela = true;
       alert("Audio incluido com sucesso");
+      this.audioService.SelecionarTodos().subscribe(registros => {
+        this.audios = registros;
+      })
     });
+  }
+  Voltar():void{
+    this.visibilidadeTabela = true;
+    this.visibilidadeFormulario = false;
   }
 
 }

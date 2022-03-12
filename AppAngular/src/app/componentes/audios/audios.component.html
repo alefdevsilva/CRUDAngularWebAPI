@@ -1,11 +1,11 @@
-<div class="container p-5">
-<div class="border border-light rounded p-5">
-        <button type="button" class="btn btn-sm btn-secondary">Novo Audio</button>
+<div class="container p-5" *ngIf="visibilidadeTabela">
+<div class="border border-light rounded p-5" >
+        <button type="button" class="btn btn-sm btn-secondary"(click)="ExibirFormularioCadastro()">Novo Audio</button>
 </div>
 <hr>
 
 <table class="table table-striped table-hover table-sm" *ngIf="audios">
-<tr class="thead-light">
+<tr height="50px" class="thead-light">
 
  <th>#</th>
  <th>Arquivo Nome</th>
@@ -17,14 +17,14 @@
 
 <tr *ngFor="let audio of audios">
 
-  <td>{{ audio.audioId }}</td>
+  <td height="50px">{{ audio.audioId }}</td>
   <td>{{ audio.arquivoNome }}</td>
   <td>{{ audio.tipo }}</td>
   <td>{{ audio.operadorNome }}</td>
   <td>{{ audio.dataCriacao }}</td>
 
   <td>
-    <button type="button" class="btn btn-sm btn-outline-info">Atualizar</button> |
+    <button type="button" class="btn btn-sm btn-outline-info" >Atualizar</button> |
     <button type="button" class="btn btn-sm btn-outline-danger">Excluir</button>
   </td>
 
@@ -37,7 +37,7 @@
 
 
 
-<div class="container p-5">
+<div class="container p-5" *ngIf="visibilidadeFormulario">
     <div class="row">
         <div class="col-6 border border-light rounded p-5 shadow" *ngIf="formulario">
             <h6>{{tituloFormulario}}</h6>
@@ -53,7 +53,6 @@
                     <label>Tipo</label>
                       <input type="text" class="form-control form-control-sm" formControlName="Tipo">
                   </div>
-
                   <div class="form-group">
                     <label>Operador Nome</label>
                       <input type="text" class="form-control form-control-sm" formControlName="OperadorNome">
@@ -71,7 +70,7 @@
                                   <button type="Submit" class="btn btn-sm btn-outline-secondary">Salvar</button>
                             </div>
                             <div class="row mt-2">
-                                <button type="button" class="btn btn-sm btn-light">Voltar</button>
+                                <button type="button" class="btn btn-sm btn-light" (click)="Voltar()">Voltar</button>
                             </div>
 
                         </div>
