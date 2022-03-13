@@ -1,6 +1,6 @@
 export class Audio{
 
-  audioId: number | undefined;
+  audioId: any;
   arquivoNome:string | undefined;
   tipo:string | undefined;
   operadorNome:string | undefined;

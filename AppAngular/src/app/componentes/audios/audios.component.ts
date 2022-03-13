@@ -13,12 +13,14 @@ export class AudiosComponent implements OnInit {
 formulario:any;
 tituloFormulario: string | undefined;
 audios: Audio[] | undefined;
+arquivoNome: any;
+audioId:any;
 
 visibilidadeTabela: boolean =  true;
 visibilidadeFormulario: boolean = false;
 
-
-
+modalRef: BsModalRef | undefined;
+  modalService: any;
 
   constructor(private audioService: AudiosService ) { }
 
@@ -42,28 +44,59 @@ visibilidadeFormulario: boolean = false;
     });
   }
 
-/*
-  ExibirFormulrioAtualizacao(audioId):void{
-    this.
+  ExibirFormulrioAtualizacao(audioId: any):void {
+    this.visibilidadeTabela = false;
+    this.visibilidadeFormulario = true;
+
+      this.audioService.SelecionarPK(audioId).subscribe((resultado) => {
+      this.tituloFormulario = `Atualizar  ${resultado.arquivoNome}`;
 
 
+      this.formulario = new FormGroup({
+        audioId: new FormControl(resultado.audioId),
+        ArquivoNome: new FormControl(resultado.arquivoNome),
+        Tipo: new FormControl(resultado.tipo),
+        OperadorNome: new FormControl(resultado.operadorNome),
+        DataCriacao: new FormControl(resultado.dataCriacao)
+
+      });
+    });
   }
-  */
 
   EnviarFormulario():void{
     const audio : Audio = this.formulario.value;
-    this.audioService.SalvarAudio(audio).subscribe(resultado => {
+
+    if(audio.audioId > 0) {
+
+      this.audioService.AtualizarAudio(audio).subscribe((resultado) => {
+      this.visibilidadeFormulario = false;
+      this.visibilidadeTabela = true;
+      alert("Audio atualizado com sucesso");
+        this.audioService.SelecionarTodos().subscribe((registros) => {
+        this.audios = registros;
+      });
+      });
+
+    }
+    else{
+
+    this.audioService.SalvarAudio(audio).subscribe((resultado) => {
       this.visibilidadeFormulario = false;
       this.visibilidadeTabela = true;
       alert("Audio incluido com sucesso");
-      this.audioService.SelecionarTodos().subscribe(registros => {
+      this.audioService.SelecionarTodos().subscribe((registros) => {
         this.audios = registros;
-      })
+      });
     });
   }
+  }
+
+
   Voltar():void{
     this.visibilidadeTabela = true;
     this.visibilidadeFormulario = false;
   }
+
+
 
 }

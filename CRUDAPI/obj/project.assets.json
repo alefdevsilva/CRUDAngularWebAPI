@@ -2063,11 +2063,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\CRUD_AngularWebAPI\\CRUDAPI\\CRUDAPI.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\CRUD_AngularWebAPI\\crudapi\\CRUDAPI.csproj",
       "projectName": "CRUDAPI",
-      "projectPath": "C:\\Users\\DELL\\Desktop\\CRUD_AngularWebAPI\\CRUDAPI\\CRUDAPI.csproj",
+      "projectPath": "C:\\Users\\DELL\\Desktop\\CRUD_AngularWebAPI\\crudapi\\CRUDAPI.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Desktop\\CRUD_AngularWebAPI\\CRUDAPI\\obj\\",
+      "outputPath": "C:\\Users\\DELL\\Desktop\\CRUD_AngularWebAPI\\crudapi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
