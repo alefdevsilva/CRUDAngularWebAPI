@@ -27,15 +27,9 @@
     <button type="button" class="btn btn-sm btn-outline-info" (click)="ExibirFormulrioAtualizacao(audio.audioId)" >Atualizar</button> |
     <button type="button" class="btn btn-sm btn-outline-danger" (click)="ExibirConfirmacaoExclusao(audio.audioId, audio.arquivoNome, ConteudoModal)" >Excluir</button>
   </td>
-
 </tr>
-
 </table>
-
 </div>
-
-
-
 
 <div class="container p-5" *ngIf="visibilidadeFormulario">
     <div class="row">
@@ -81,7 +75,6 @@
       </div>
   </div>
 
-
   <ng-template #ConteudoModal>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Confirmação de Exclusão</h4>
@@ -97,5 +90,4 @@
       <button type="button" class="btn btn-light" (click)="modalRef?.hide()">Não</button>
       <button type="button" class="btn btn-outline-danger" (click)="ExcluirAudio(audioId)">Sim</button>
     </div>
-
   </ng-template>

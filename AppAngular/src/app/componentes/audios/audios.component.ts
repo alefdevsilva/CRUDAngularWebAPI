@@ -92,7 +92,6 @@ modalRef: BsModalRef | undefined;
   }
   }
 
-
   Voltar():void{
     this.visibilidadeTabela = true;
     this.visibilidadeFormulario = false;
@@ -102,7 +101,6 @@ modalRef: BsModalRef | undefined;
     this.modalRef = this.modalService.show(conteudoModal);
     this.audioId = audioId;
     this.arquivoNome = arquivoNome;
-
 
   }
 
