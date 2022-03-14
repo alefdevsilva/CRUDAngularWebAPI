@@ -13,10 +13,5 @@ namespace CRUDAPI.Models
         public DateTime DataCriacao { get; set; }
 
         
-
-
-
-
-
     }
 }
