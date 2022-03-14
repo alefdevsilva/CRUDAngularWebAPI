@@ -21,7 +21,6 @@ visibilidadeFormulario: boolean = false;
 
 modalRef: BsModalRef | undefined;
 
-
   constructor(private audioService: AudiosService,
     private modalService: BsModalService  ) { }
 

@@ -6,5 +6,4 @@ export class Audio{
   operadorNome:string | undefined;
   dataCriacao:Date | undefined;
 
-
 }
