@@ -36,9 +36,8 @@ export class AudiosService {
     return this.http.put<Audio>(this.url, audio, HttpOptions)
   }
 
-
     ExcluirAudio(AudioId:number):Observable<any>{
-      const apiUrl = `${this.url}${AudioId}`;
+      const apiUrl = `${this.url}/${AudioId}`;
       return this.http.delete<number>(apiUrl, HttpOptions);
     }
 

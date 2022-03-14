@@ -13,16 +13,17 @@ export class AudiosComponent implements OnInit {
 formulario:any;
 tituloFormulario: string | undefined;
 audios: Audio[] | undefined;
-arquivoNome: any;
-audioId:any;
+arquivoNome: string | undefined;
+audioId:number | undefined;
 
 visibilidadeTabela: boolean =  true;
 visibilidadeFormulario: boolean = false;
 
 modalRef: BsModalRef | undefined;
-  modalService: any;
 
-  constructor(private audioService: AudiosService ) { }
+
+  constructor(private audioService: AudiosService,
+    private modalService: BsModalService  ) { }
 
   ngOnInit(): void {
     this.audioService.SelecionarTodos().subscribe(resultado =>{
@@ -97,6 +98,21 @@ modalRef: BsModalRef | undefined;
     this.visibilidadeFormulario = false;
   }
 
+  ExibirConfirmacaoExclusao(audioId: number | undefined, arquivoNome: string | undefined, conteudoModal:TemplateRef<any>):void{
+    this.modalRef = this.modalService.show(conteudoModal);
+    this.audioId = audioId;
+    this.arquivoNome = arquivoNome;
 
 
+  }
+
+  ExcluirAudio(audioId: any){
+    this.audioService.ExcluirAudio(audioId).subscribe(resultado => {
+      this.modalRef?.hide();
+      alert("Audio exluído com sucesso!");
+      this.audioService.SelecionarTodos().subscribe(registros =>{
+        this.audios = registros;
+      });
+    });
+  }
 }

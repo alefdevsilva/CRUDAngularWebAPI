@@ -51,11 +51,11 @@ namespace CRUDAPI.Controllers
         public async Task<ActionResult> ExcluirAudioAsync (int Id) {
             Audio audio = await _contexto.Audios.FindAsync (Id);
             if (audio == null)
-                return NotFound ();
+                return NotFound();
 
-            _contexto.Remove (audio);
-            await _contexto.SaveChangesAsync ();
-            return Ok ();
+            _contexto.Remove(audio);
+            await _contexto.SaveChangesAsync();
+            return Ok();
         }
 
     }
